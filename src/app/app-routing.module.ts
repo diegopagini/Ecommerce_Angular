@@ -6,7 +6,7 @@ import { PdpComponent } from './pages/pdp/pdp.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'pdp', component: PdpComponent },
+  { path: 'pdp/:id', component: PdpComponent },
 ];
 
 @NgModule({
