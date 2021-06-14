@@ -1,7 +1,12 @@
 <ng-container *ngIf="product">
   <div class="card shadow-sm">
     <!-- Product image-->
-    <img class="card-img-top" [src]="product.image" [alt]="product.title" />
+    <img
+      class="card-img-top"
+      [src]="product.image"
+      [alt]="product.title"
+      loading="lazy"
+    />
     <!-- Product details-->
     <div class="card-body p-2">
       <div class="text-center">

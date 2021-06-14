@@ -2,8 +2,9 @@
 
 .card {
   cursor: pointer;
-  max-width: 320px;
   height: 450px;
+  margin: 0 auto;
+  max-width: 320px;
 
   &-img-top {
     height: 300px;

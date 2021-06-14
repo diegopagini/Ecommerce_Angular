@@ -12,7 +12,17 @@
 <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
-      <ng-container *ngIf="products$ | async as products">
+      <ng-container *ngIf="listOneProducts$ | async as products">
+        <app-carousel [products]="products"></app-carousel>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container px-4 px-lg-5 mt-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <ng-container *ngIf="listTwoProducts$ | async as products">
         <app-carousel [products]="products"></app-carousel>
       </ng-container>
     </div>
