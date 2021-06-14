@@ -1,14 +1,13 @@
 <swiper [config]="config">
   <div class="swiper-wrapper">
-    <ng-container *ngFor="let product of products">
+    <div class="swiper-slide" *ngFor="let product of products">
+      <!-- <img src="https://via.placeholder.com/600.png/09f/fff" alt="Image One" /> -->
       <app-product-card [product]="product"></app-product-card>
-    </ng-container>
+    </div>
   </div>
 
-  <!-- Add Pagination -->
   <div class="swiper-pagination"></div>
 
-  <!-- Add Arrows -->
   <div class="swiper-button-next"></div>
   <div class="swiper-button-prev"></div>
 </swiper>

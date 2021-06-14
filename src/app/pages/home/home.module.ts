@@ -4,7 +4,9 @@ import { HomeComponent } from './home.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
+import SwiperCore, { EffectFade } from 'swiper';
 
+SwiperCore.use([EffectFade]);
 @NgModule({
   declarations: [HomeComponent],
   imports: [CommonModule, RouterModule, SharedModule, HttpClientModule],

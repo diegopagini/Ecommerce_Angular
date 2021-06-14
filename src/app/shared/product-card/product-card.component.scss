@@ -1,0 +1,17 @@
+@import "../../styles/media-queries";
+
+.card {
+  cursor: pointer;
+  max-width: 320px;
+  height: 450px;
+
+  &-img-top {
+    height: 300px;
+    padding: 1rem;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

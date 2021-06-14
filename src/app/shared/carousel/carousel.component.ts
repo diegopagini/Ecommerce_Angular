@@ -10,10 +10,6 @@ import { SwiperOptions } from 'swiper';
 export class CarouselComponent implements OnInit {
   @Input() products: Product[];
 
-  constructor() {}
-
-  ngOnInit(): void {}
-
   config: SwiperOptions = {
     pagination: {
       el: '.swiper-pagination',
@@ -23,6 +19,11 @@ export class CarouselComponent implements OnInit {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
-    spaceBetween: 30,
+    spaceBetween: 40,
+    slidesPerView: 4,
   };
+
+  constructor() {}
+
+  ngOnInit(): void {}
 }
