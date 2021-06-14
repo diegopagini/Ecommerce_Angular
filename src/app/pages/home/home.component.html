@@ -1,30 +1,48 @@
 <header class="bg-dark py-5">
   <div class="container px-4 px-lg-5 my-5">
     <div class="text-center text-white">
-      <h1 class="display-4 fw-bolder">Shop in style</h1>
+      <h1 class="display-4 fw-bolder">Nisi nisi et ex commodo mollit.</h1>
       <p class="lead fw-normal text-white-50 mb-0">
-        With this shop hompeage template
+        Duis aute tempor nisi mollit commodo deserunt Lorem eiusmod officia qui
+        excepteur.
       </p>
     </div>
   </div>
 </header>
-<!--main page-->
-<section class="py-5">
-  <div class="container px-4 px-lg-5 mt-5">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
-      <ng-container *ngIf="listOneProducts$ | async as products">
-        <app-carousel [products]="products"></app-carousel>
-      </ng-container>
-    </div>
-  </div>
-</section>
 
-<section class="py-5">
-  <div class="container px-4 px-lg-5 mt-5">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
-      <ng-container *ngIf="listTwoProducts$ | async as products">
-        <app-carousel [products]="products"></app-carousel>
-      </ng-container>
-    </div>
-  </div>
-</section>
+<main>
+  <ng-container
+    *ngIf="{
+      listOne: listOneProducts$ | async,
+      listTwo: listOneProducts$ | async
+    } as products"
+  >
+    <ng-container *ngIf="products.listOne; else spinner">
+      <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+          <div class="row gx-4 gx-lg-5 justify-content-center">
+            <ng-container *ngIf="products.listOne as products">
+              <app-carousel [products]="products"></app-carousel>
+            </ng-container>
+          </div>
+        </div>
+      </section>
+    </ng-container>
+
+    <ng-container *ngIf="products.listTwo; else spinner">
+      <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+          <div class="row gx-4 gx-lg-5 justify-content-center">
+            <ng-container *ngIf="listTwoProducts$ | async as products">
+              <app-carousel [products]="products"></app-carousel>
+            </ng-container>
+          </div>
+        </div>
+      </section>
+    </ng-container>
+  </ng-container>
+</main>
+
+<ng-template #spinner>
+  <app-spinner></app-spinner>
+</ng-template>
