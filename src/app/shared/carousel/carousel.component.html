@@ -1,7 +1,6 @@
 <swiper [config]="config">
   <div class="swiper-wrapper">
     <div class="swiper-slide" *ngFor="let product of products">
-      <!-- <img src="https://via.placeholder.com/600.png/09f/fff" alt="Image One" /> -->
       <app-product-card [product]="product"></app-product-card>
     </div>
   </div>

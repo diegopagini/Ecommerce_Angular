@@ -10,7 +10,8 @@ import { SwiperOptions } from 'swiper';
 export class CarouselComponent implements OnInit {
   @Input() products: Product[];
 
-  config: SwiperOptions = {
+  public config: SwiperOptions = {
+    autoplay: true,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,

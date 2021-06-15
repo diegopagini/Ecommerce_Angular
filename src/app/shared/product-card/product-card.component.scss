@@ -1,12 +1,12 @@
 @import "../../styles/media-queries";
 
 .card {
-  cursor: pointer;
   height: 450px;
   margin: 0 auto;
   max-width: 320px;
 
   &-img-top {
+    cursor: pointer;
     height: 300px;
     padding: 1rem;
 
