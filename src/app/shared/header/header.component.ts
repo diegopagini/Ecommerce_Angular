@@ -14,8 +14,7 @@ export class HeaderComponent {
   constructor(private store: Store<{ cart: any }>) {
     this.cartProductsLength$ = this.store.select('cart').pipe(
       map((cart) => cart.cart),
-      map((cartProducts) => cartProducts.length),
-      tap(console.log)
+      map((cartProducts) => cartProducts.length)
     );
   }
 }
