@@ -10,10 +10,17 @@ import { addToCart } from '../../store/actions/cart.actions';
 })
 export class ProductCardComponent {
   @Input() product: Product;
+  public quantity: number = 1;
 
   constructor(private store: Store) {}
 
   addToCart() {
-    this.store.dispatch(addToCart({ payload: this.product }));
+    const produtToAdd = {
+      ...this.product,
+      quantity: this.quantity,
+    };
+    this.store.dispatch(addToCart({ payload: produtToAdd }));
+
+    this.quantity = 1;
   }
 }

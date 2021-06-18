@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
 @Component({
@@ -13,8 +13,14 @@ export class HeaderComponent {
 
   constructor(private store: Store<{ cart: any }>) {
     this.cartProductsLength$ = this.store.select('cart').pipe(
-      map((cart) => cart.cart),
-      map((cartProducts) => cartProducts.length)
+      map((cart) => cart.cart.map((product) => product.quantity)),
+      map((cartProducts: number[]) => {
+        let sum: number = 0;
+        cartProducts.map((totals: number) => {
+          sum += totals;
+        });
+        return sum;
+      })
     );
   }
 }

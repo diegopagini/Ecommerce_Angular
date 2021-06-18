@@ -11,7 +11,10 @@ export class CarouselComponent implements OnInit {
   @Input() products: Product[];
 
   public config: SwiperOptions = {
-    autoplay: true,
+    autoplay: {
+      delay: 10000,
+    },
+
     pagination: {
       el: '.swiper-pagination',
       clickable: true,

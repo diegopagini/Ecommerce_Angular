@@ -15,4 +15,13 @@
       width: 100%;
     }
   }
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+
+    .form-control {
+      max-width: 40%;
+    }
+  }
 }
