@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Product } from 'src/app/models/product.interfacte';
 import { ApiService } from 'src/app/services/api.service';
 import { addToCart } from '../../store/actions/cart.actions';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-pdp',
@@ -34,6 +35,15 @@ export class PdpComponent implements OnInit {
         quantity: Number(this.quantity),
       };
       this.store.dispatch(addToCart({ payload: productToAdd }));
+
+      Swal.fire({
+        icon: 'success',
+        title: 'your product(s) have been added to the cart',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
+      this.quantity = 1;
     });
   }
 }
