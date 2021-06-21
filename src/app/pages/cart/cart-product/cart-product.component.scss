@@ -1,0 +1,20 @@
+@import "../../../styles/media-queries";
+
+.card {
+  display: flex;
+  flex-direction: row;
+  margin: 2rem;
+  width: 650px;
+
+  .card-img-top {
+    max-width: 200px;
+    padding: 1rem;
+  }
+
+  .card-body {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+}

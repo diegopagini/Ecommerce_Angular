@@ -1,0 +1,28 @@
+<ng-container *ngIf="product">
+  <div class="card shadow-sm animate__animated animate__fadeIn">
+    <!-- Product image-->
+    <img
+      class="card-img-top"
+      [src]="product.image"
+      [alt]="product.title"
+      loading="lazy"
+      routerLink="/pdp/{{ product.id }}"
+    />
+    <!-- Product details-->
+    <div class="card-body p-2">
+      <div class="text-center">
+        <!-- Product name-->
+        <h5 class="fw-bolder">
+          {{ product.title }}
+        </h5>
+        <!-- Product price-->
+        <i><strong>Price:</strong></i> {{ product.price | currency }}
+        <!-- Product quantity-->
+        <div>
+          <i><strong>Quantity:</strong></i>
+          {{ product.quantity }}
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,7 @@
+<ng-container *ngIf="cartList$ | async as cartList">
+  <div class="product-list-container">
+    <ng-container *ngFor="let product of cartList">
+      <app-cart-product [product]="product"> </app-cart-product>
+    </ng-container>
+  </div>
+</ng-container>
