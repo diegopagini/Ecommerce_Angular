@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product.interfacte';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cart-product',
@@ -11,7 +12,14 @@ export class CartProductComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.product);
+  ngOnInit(): void {}
+
+  removeItem() {
+    Swal.fire({
+      icon: 'success',
+      title: 'your product was removed from the cart',
+      showConfirmButton: false,
+      timer: 1500,
+    });
   }
 }

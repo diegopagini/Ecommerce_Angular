@@ -1,5 +1,10 @@
 <ng-container *ngIf="product">
   <div class="card shadow-sm animate__animated animate__fadeIn">
+    <div class="remove-container">
+      <button class="btn btn-outline-dark" (click)="removeItem()">
+        <i class="bi bi-x"></i>
+      </button>
+    </div>
     <!-- Product image-->
     <img
       class="card-img-top"

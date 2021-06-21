@@ -1,7 +1,18 @@
 <ng-container *ngIf="cartList$ | async as cartList">
-  <div class="product-list-container">
-    <ng-container *ngFor="let product of cartList">
-      <app-cart-product [product]="product"> </app-cart-product>
-    </ng-container>
-  </div>
+  <ng-container *ngIf="cartList.length >= 1; else noProducts">
+    <div class="product-list-container">
+      <ng-container *ngFor="let product of cartList">
+        <app-cart-product [product]="product"> </app-cart-product>
+      </ng-container>
+    </div>
+  </ng-container>
 </ng-container>
+
+<ng-template #noProducts>
+  <div class="product-list-container">
+    <h3>There are no products in your cart yet...</h3>
+    <button class="btn btn-outline-dark mt-2" routerLink="/home">
+      ¡Start shopping!
+    </button>
+  </div>
+</ng-template>
