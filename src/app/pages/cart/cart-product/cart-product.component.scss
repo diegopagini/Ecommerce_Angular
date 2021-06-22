@@ -5,7 +5,7 @@
   flex-direction: row;
   margin: 1rem;
   position: relative;
-  width: 650px;
+  max-width: 750px;
 
   @include mobile {
     align-items: center;
@@ -25,6 +25,7 @@
   }
 
   .card-img-top {
+    cursor: pointer;
     max-width: 200px;
     padding: 1rem;
   }

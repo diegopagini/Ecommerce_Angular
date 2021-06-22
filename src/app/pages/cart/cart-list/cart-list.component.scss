@@ -2,6 +2,19 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 85vh;
+  padding-top: 3rem;
+}
+
+.no-products-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 85vh;
+  justify-content: center;
+
+  .no-products-title {
+    text-align: center;
+  }
 }

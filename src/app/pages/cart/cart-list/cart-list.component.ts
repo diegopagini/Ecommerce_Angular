@@ -15,12 +15,6 @@ export class CartListComponent implements OnInit {
   constructor(private store: Store<{ cart: any }>) {}
 
   ngOnInit(): void {
-    this.cartList$ = this.store.select('cart').pipe(
-      map((state) => {
-        const productsInCart = state.cart;
-
-        return productsInCart;
-      })
-    );
+    this.cartList$ = this.store.select('cart').pipe(map((state) => state.cart));
   }
 }

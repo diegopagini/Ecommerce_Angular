@@ -1,0 +1,13 @@
+@import "../../styles/media-queries";
+
+.resume-container {
+  margin: 4rem auto 2rem;
+  max-width: 300px;
+
+  .btn-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+  }
+}

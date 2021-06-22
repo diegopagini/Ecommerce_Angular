@@ -1,0 +1,26 @@
+<ng-container *ngIf="resume$ | async as resume">
+  <div
+    class="resume-container card shadow-sm animate__animated animate__fadeIn"
+  >
+    <img
+      class="card-img-top"
+      src="assets/img/checkout.jpg"
+      alt="checkout img"
+      loading="lazy"
+    />
+
+    <div class="card-body text-center p2">
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae
+        omnis necessitatibus, commodi, nulla consequuntur quibusdam facilis at
+        tempore quam doloribus expedita accusamus voluptate non quasi nobis
+        laboriosam voluptas nisi soluta!
+      </p>
+      <h4><strong>Quantity:</strong> {{ resume.quantity }}</h4>
+      <h4><strong>Total:</strong> {{ resume.money | currency }}</h4>
+    </div>
+    <div class="btn-container">
+      <button class="btn btn-outline-dark">Go to checkout</button>
+    </div>
+  </div>
+</ng-container>
