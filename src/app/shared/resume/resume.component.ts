@@ -23,7 +23,7 @@ export class ResumeComponent implements OnInit {
 
           state.cart.forEach((product: Product) => {
             totalQuantity += product.quantity;
-            totalMoney += product.price;
+            totalMoney += product.quantity * product.price;
           });
 
           const total = {
@@ -33,7 +33,7 @@ export class ResumeComponent implements OnInit {
 
           return total;
         } else {
-          return;
+          return null;
         }
       })
     );
