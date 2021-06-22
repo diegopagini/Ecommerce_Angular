@@ -5,3 +5,8 @@ export const addToCart = createAction(
   '[Cart] Add to cart',
   props<{ payload: Product }>()
 );
+
+export const removeFromCart = createAction(
+  '[Cart] Remove from cart',
+  props<{ payload: Product }>()
+);

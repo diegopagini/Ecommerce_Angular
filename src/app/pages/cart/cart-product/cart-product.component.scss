@@ -7,10 +7,21 @@
   position: relative;
   width: 650px;
 
+  @include mobile {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+  }
+
   .remove-container {
     position: absolute;
     top: 0;
     right: 0;
+
+    .btn {
+      padding: 0.25rem 0.5rem;
+    }
   }
 
   .card-img-top {
@@ -23,5 +34,9 @@
     display: flex;
     justify-content: center;
     text-align: center;
+
+    .fw-bolder {
+      max-width: 400px;
+    }
   }
 }
