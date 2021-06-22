@@ -1,0 +1,14 @@
+@import "../../../styles/media-queries";
+
+.products-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: max-content;
+  grid-gap: 2rem;
+  margin: 3rem auto;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content;
+  }
+}

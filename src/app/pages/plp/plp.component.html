@@ -1,0 +1,26 @@
+<ng-container
+  *ngIf="{
+    categories: categories$ | async,
+    products: products$ | async
+  } as data"
+>
+  <div class="plp-container">
+    <div class="selector-container">
+      <ng-container *ngIf="data.categories; else spinner">
+        <app-product-filter
+          [categories]="data.categories"
+          (selectedCategory)="changeCategory($event)"
+        ></app-product-filter>
+      </ng-container>
+    </div>
+    <div class="products-grid-contaioner">
+      <ng-container *ngIf="data.products; else spinner">
+        <app-product-grid [products]="data.products"></app-product-grid>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #spinner>
+  <app-spinner></app-spinner>
+</ng-template>

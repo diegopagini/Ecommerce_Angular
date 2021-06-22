@@ -1,0 +1,15 @@
+<ng-container *ngIf="categories">
+  <div
+    class="filter-container card shadow-sm animate__animated animate__fadeIn"
+  >
+    <div class="card-body">
+      <div class="filter-title"><strong>Flter by:</strong></div>
+      <ul class="filter-body">
+        <li *ngFor="let category of categories; let i = index">
+          <div>{{ category }}</div>
+          <input type="checkbox" (click)="sortBy(i)" />
+        </li>
+      </ul>
+    </div>
+  </div>
+</ng-container>

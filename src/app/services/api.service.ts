@@ -22,4 +22,8 @@ export class ApiService {
   getCategories(): Observable<any> {
     return this.http.get<any>(`${this.URL_API}products/categories`);
   }
+
+  getProductsByCategory(category: string): Observable<any> {
+    return this.http.get<any>(`${this.URL_API}products/category/${category}`);
+  }
 }

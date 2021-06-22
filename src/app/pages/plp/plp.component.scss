@@ -1,0 +1,25 @@
+@import "../../styles/media-queries";
+
+.plp-container {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-evenly;
+
+  .selector-container {
+    max-width: 30%;
+  }
+
+  .products-grid-contaioner {
+    max-width: 70%;
+  }
+
+  @include mobile {
+    align-items: center;
+    flex-direction: column;
+
+    .selector-container,
+    .products-grid-contaioner {
+      max-width: 100%;
+    }
+  }
+}

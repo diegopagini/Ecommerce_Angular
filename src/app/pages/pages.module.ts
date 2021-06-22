@@ -5,6 +5,7 @@ import { PdpModule } from './pdp/pdp.module';
 import { CartModule } from './cart/cart.module';
 import { CheckoutModule } from './checkout/checkout.module';
 import { NotFoundModule } from './not-found/not-found.module';
+import { PlpModule } from './plp/plp.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,15 @@ import { NotFoundModule } from './not-found/not-found.module';
     CartModule,
     CheckoutModule,
     NotFoundModule,
+    PlpModule,
   ],
-  exports: [HomeModule, PdpModule, CartModule, CheckoutModule, NotFoundModule],
+  exports: [
+    HomeModule,
+    PdpModule,
+    CartModule,
+    CheckoutModule,
+    NotFoundModule,
+    PlpModule,
+  ],
 })
 export class PagesModule {}
