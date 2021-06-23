@@ -10,6 +10,8 @@
         <app-product-filter
           [categories]="data.categories"
           (selectedCategory)="changeCategory($event)"
+          (sortHigherToLower)="sortHigher($event)"
+          (sortLowerToHigher)="sortLower($event)"
         ></app-product-filter>
       </ng-container>
     </div>

@@ -3,11 +3,28 @@
     class="filter-container card shadow-sm animate__animated animate__fadeIn"
   >
     <div class="card-body">
-      <div class="filter-title"><strong>Flter by:</strong></div>
+      <h3 class="filter-title"><strong>Filter by:</strong></h3>
       <ul class="filter-body">
         <li *ngFor="let category of categories; let i = index">
           <div>{{ category }}</div>
-          <input type="checkbox" (click)="sortBy(i)" />
+          <button class="btn" (click)="sortBy(i)">
+            <i class="bi bi-search"></i>
+          </button>
+        </li>
+      </ul>
+      <h3 class="filter-title"><strong>Sort by:</strong></h3>
+      <ul class="filter-body">
+        <li>
+          Higher to lower
+          <button class="btn" (click)="sortHigher()">
+            <i class="bi bi-sort-down"></i>
+          </button>
+        </li>
+        <li>
+          Lower to higher
+          <button class="btn" (click)="sortLower()">
+            <i class="bi bi-sort-down-alt"></i>
+          </button>
         </li>
       </ul>
     </div>

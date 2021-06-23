@@ -8,6 +8,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class ProductFilterComponent implements OnInit {
   @Input() categories: string[] = [];
   @Output() selectedCategory: EventEmitter<number> = new EventEmitter();
+  @Output() sortHigherToLower: EventEmitter<any> = new EventEmitter();
+  @Output() sortLowerToHigher: EventEmitter<any> = new EventEmitter();
 
   constructor() {}
 
@@ -15,5 +17,13 @@ export class ProductFilterComponent implements OnInit {
 
   sortBy(index: number) {
     this.selectedCategory.emit(index);
+  }
+
+  sortHigher() {
+    this.sortHigherToLower.emit();
+  }
+
+  sortLower() {
+    this.sortLowerToHigher.emit();
   }
 }

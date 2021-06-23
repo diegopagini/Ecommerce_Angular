@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -43,5 +44,35 @@ export class PlpComponent implements OnInit {
       default:
         return (this.categories$ = this.apiSerice.getCategories());
     }
+  }
+
+  sortHigher() {
+    this.products$ = this.products$.pipe(
+      map((products) =>
+        products.sort((a, b) => {
+          if (a.price < b.price) {
+            return 1;
+          } else if (a.price > b.price) {
+            return -1;
+          }
+          return 0;
+        })
+      )
+    );
+  }
+
+  sortLower() {
+    this.products$ = this.products$.pipe(
+      map((products) =>
+        products.sort((a, b) => {
+          if (a.price > b.price) {
+            return 1;
+          } else if (a.price < b.price) {
+            return -1;
+          }
+          return 0;
+        })
+      )
+    );
   }
 }
