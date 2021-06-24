@@ -1,0 +1,36 @@
+<form
+  [formGroup]="checkoutForm"
+  autocomplete="off"
+  class="card form-container shadow-sm"
+  (ngSubmit)="submit()"
+>
+  <label for="name" class="form-label">Name</label>
+  <input id="name" type="text" class="form-control" formControlName="name" />
+  <app-form-error></app-form-error>
+  <label for="lastName" class="form-label">Last name</label>
+  <input
+    id="lastName"
+    type="text"
+    class="form-control"
+    formControlName="lastName"
+  />
+  <label for="address" class="form-label">Address</label>
+  <input
+    id="address"
+    type="text"
+    class="form-control"
+    formControlName="address"
+  />
+  <label for="phone" class="form-label">Phone</label>
+  <input id="phone" type="tel" class="form-control" formControlName="phone" />
+  <label for="email" class="form-label">Email</label>
+  <input id="email" type="email" class="form-control" formControlName="email" />
+  <label for="card" class="form-label">Credit card number</label>
+  <input id="card" type="number" class="form-control" formControlName="card" />
+
+  <div class="btn-container">
+    <button class="btn btn-outline-dark" type="submit" [disabled]="">
+      Submit
+    </button>
+  </div>
+</form>

@@ -5,6 +5,7 @@ import { FooterModule } from './footer/footer.module';
 import { ProductCardModule } from './product-card/product-card.module';
 import { CarouselModule } from './carousel/carousel.module';
 import { SpinnerModule } from './spinner/spinner.module';
+import { FormErrorModule } from './form-error/form-error.module';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { SpinnerModule } from './spinner/spinner.module';
     ProductCardModule,
     CarouselModule,
     SpinnerModule,
+    FormErrorModule,
   ],
   exports: [
     HeaderModule,
@@ -21,6 +23,7 @@ import { SpinnerModule } from './spinner/spinner.module';
     ProductCardModule,
     CarouselModule,
     SpinnerModule,
+    FormErrorModule,
   ],
 })
 export class SharedModule {}

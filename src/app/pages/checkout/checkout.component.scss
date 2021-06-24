@@ -1,0 +1,19 @@
+@import "../../styles/media-queries";
+
+.checkout-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  max-width: 1440px;
+  min-height: 85vh;
+
+  @include mobile {
+    flex-direction: column;
+  }
+
+  app-checkout-form,
+  app-checkout-resume {
+    width: 90%;
+  }
+}
