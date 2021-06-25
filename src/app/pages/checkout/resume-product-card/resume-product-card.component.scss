@@ -1,0 +1,28 @@
+@import "../../../styles/media-queries";
+
+.resume-card {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+
+  .resume-img-container {
+    height: 100px;
+    img {
+      height: 100%;
+      padding: 0.5rem 0.5rem 0.5rem 1rem;
+    }
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100;
+
+    .card-item {
+      text-align: center;
+    }
+  }
+}

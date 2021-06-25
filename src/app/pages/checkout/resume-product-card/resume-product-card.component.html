@@ -1,0 +1,17 @@
+<ng-container *ngIf="product">
+  <div class="resume-card card shadow-sm animate__animated animate__fadeIn">
+    <div class="resume-img-container">
+      <img
+        class="resume-img"
+        [src]="product.image"
+        [alt]="product.title"
+        loading="lazy"
+      />
+    </div>
+    <div class="card-body">
+      <div class="card-item">{{ product.title | slice: 0:20 }}</div>
+      <div class="card-item">Quantity: {{ product.quantity }}</div>
+      <div class="card-item">Price: {{ product.price | currency }}</div>
+    </div>
+  </div>
+</ng-container>

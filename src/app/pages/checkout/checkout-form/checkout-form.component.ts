@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { map, take } from 'rxjs/operators';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-checkout-form',
@@ -8,8 +13,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CheckoutFormComponent implements OnInit {
   public checkoutForm: FormGroup;
+  private isLoggedIn: Observable<boolean>;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private store: Store<{ cart }>,
+    private router: Router
+  ) {
     this.checkoutForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       lastName: ['', [Validators.required, Validators.minLength(2)]],
@@ -23,9 +33,78 @@ export class CheckoutFormComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isLoggedIn = this.store.select('cart').pipe(
+      map((store) => store.isLoggedIn),
+      take(1)
+    );
+  }
+
+  get nameNoValid(): boolean {
+    return (
+      this.checkoutForm.get('name').invalid &&
+      this.checkoutForm.get('name').touched
+    );
+  }
+
+  get lastNameNoValid(): boolean {
+    return (
+      this.checkoutForm.get('lastName').invalid &&
+      this.checkoutForm.get('lastName').touched
+    );
+  }
+
+  get addressNoValid(): boolean {
+    return (
+      this.checkoutForm.get('address').invalid &&
+      this.checkoutForm.get('address').touched
+    );
+  }
+
+  get phoneNoValid(): boolean {
+    return (
+      this.checkoutForm.get('phone').invalid &&
+      this.checkoutForm.get('phone').touched
+    );
+  }
+
+  get emailNoValid(): boolean {
+    return (
+      this.checkoutForm.get('email').invalid &&
+      this.checkoutForm.get('email').touched
+    );
+  }
+
+  get cardNoValid(): boolean {
+    return (
+      this.checkoutForm.get('card').invalid &&
+      this.checkoutForm.get('card').touched
+    );
+  }
 
   submit() {
-    console.log(this.checkoutForm.value);
+    if (this.checkoutForm.valid) {
+      this.isLoggedIn.subscribe((isLogged) => {
+        if (!isLogged) {
+          Swal.fire({
+            icon: 'error',
+            title: 'You must be logged in to buy',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        } else {
+          Swal.fire({
+            icon: 'success',
+            title: 'You will receive your order very soon',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+
+          this.router.navigate(['/']);
+        }
+      });
+    } else {
+      this.checkoutForm.markAllAsTouched();
+    }
   }
 }

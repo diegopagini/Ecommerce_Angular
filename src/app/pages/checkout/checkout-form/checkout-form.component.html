@@ -6,7 +6,8 @@
 >
   <label for="name" class="form-label">Name</label>
   <input id="name" type="text" class="form-control" formControlName="name" />
-  <app-form-error></app-form-error>
+  <app-form-error *ngIf="nameNoValid"></app-form-error>
+
   <label for="lastName" class="form-label">Last name</label>
   <input
     id="lastName"
@@ -14,6 +15,8 @@
     class="form-control"
     formControlName="lastName"
   />
+  <app-form-error *ngIf="lastNameNoValid"></app-form-error>
+
   <label for="address" class="form-label">Address</label>
   <input
     id="address"
@@ -21,12 +24,19 @@
     class="form-control"
     formControlName="address"
   />
+  <app-form-error *ngIf="addressNoValid"></app-form-error>
+
   <label for="phone" class="form-label">Phone</label>
   <input id="phone" type="tel" class="form-control" formControlName="phone" />
+  <app-form-error *ngIf="phoneNoValid"></app-form-error>
+
   <label for="email" class="form-label">Email</label>
   <input id="email" type="email" class="form-control" formControlName="email" />
+  <app-form-error *ngIf="emailNoValid"></app-form-error>
+
   <label for="card" class="form-label">Credit card number</label>
   <input id="card" type="number" class="form-control" formControlName="card" />
+  <app-form-error *ngIf="cardNoValid"></app-form-error>
 
   <div class="btn-container">
     <button class="btn btn-outline-dark" type="submit" [disabled]="">

@@ -1,1 +1,11 @@
-<p>checkout-resume works!</p>
+<ng-container *ngIf="resume$ | async as resume">
+  <ng-container *ngIf="resume.length >= 1">
+    <div class="resume-container card shadow-sm">
+      <app-resume-product-card
+        *ngFor="let product of resume"
+        [product]="product"
+      ></app-resume-product-card>
+      <h1>Q = {{ quantity$ | async }}</h1>
+    </div>
+  </ng-container>
+</ng-container>
