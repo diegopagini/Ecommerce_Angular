@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CartComponent } from './pages/cart/cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { HomeComponent } from './pages/home/home.component';
+import { MyAccountComponent } from './pages/my-account/my-account.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { PdpComponent } from './pages/pdp/pdp.component';
 import { PlpComponent } from './pages/plp/plp.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'plp', component: PlpComponent },
+  { path: 'my-account', component: MyAccountComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

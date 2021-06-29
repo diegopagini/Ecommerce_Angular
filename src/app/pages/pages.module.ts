@@ -6,6 +6,9 @@ import { CartModule } from './cart/cart.module';
 import { CheckoutModule } from './checkout/checkout.module';
 import { NotFoundModule } from './not-found/not-found.module';
 import { PlpModule } from './plp/plp.module';
+import { MyAccountModule } from './my-account/my-account.module';
+import { LoginModule } from './login/login.module';
+import { RegisterModule } from './register/register.module';
 
 @NgModule({
   imports: [
@@ -16,6 +19,9 @@ import { PlpModule } from './plp/plp.module';
     CheckoutModule,
     NotFoundModule,
     PlpModule,
+    MyAccountModule,
+    LoginModule,
+    RegisterModule,
   ],
   exports: [
     HomeModule,
@@ -24,6 +30,9 @@ import { PlpModule } from './plp/plp.module';
     CheckoutModule,
     NotFoundModule,
     PlpModule,
+    MyAccountModule,
+    LoginModule,
+    RegisterModule,
   ],
 })
 export class PagesModule {}
