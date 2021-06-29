@@ -3,7 +3,7 @@ import { addToCart, updateCart, removeFromCart } from '../actions/cart.actions';
 
 export const initialState = {
   cart: [],
-  isLoggedIn: true,
+  isLoggedIn: false,
 };
 
 const _cartReducer = createReducer(

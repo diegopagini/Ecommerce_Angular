@@ -1,0 +1,15 @@
+@import "../../styles/media-queries";
+
+.user-menu-container {
+  @include mobile {
+    flex-direction: column;
+  }
+  .btn {
+    margin-right: 1rem;
+
+    @include mobile {
+      margin: 0.5rem 0;
+      width: max-content;
+    }
+  }
+}

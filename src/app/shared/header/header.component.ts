@@ -10,6 +10,7 @@ import { map, tap } from 'rxjs/operators';
 })
 export class HeaderComponent {
   public cartProductsLength$: Observable<any>;
+  public menuVisible: boolean = false;
 
   constructor(private store: Store<{ cart: any }>) {
     this.cartProductsLength$ = this.store.select('cart').pipe(
@@ -22,5 +23,9 @@ export class HeaderComponent {
         return sum;
       })
     );
+  }
+
+  showMenu() {
+    this.menuVisible = !this.menuVisible;
   }
 }
