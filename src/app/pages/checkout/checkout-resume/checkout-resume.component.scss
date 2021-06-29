@@ -4,4 +4,19 @@
   padding: 1rem 3rem;
   margin: 0 auto;
   width: 95%;
+
+  @include mobile {
+    padding: 1rem;
+  }
+
+  .card-footer {
+    align-items: center;
+    display: flex;
+    padding: 3rem;
+    justify-content: space-between;
+
+    @include mobile {
+      padding: 2rem;
+    }
+  }
 }

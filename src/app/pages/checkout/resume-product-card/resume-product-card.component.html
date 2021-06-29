@@ -1,5 +1,8 @@
 <ng-container *ngIf="product">
-  <div class="resume-card card shadow-sm animate__animated animate__fadeIn">
+  <div
+    class="resume-card card shadow-sm animate__animated animate__fadeIn"
+    routerLink="/pdp/{{ product.id }}"
+  >
     <div class="resume-img-container">
       <img
         class="resume-img"

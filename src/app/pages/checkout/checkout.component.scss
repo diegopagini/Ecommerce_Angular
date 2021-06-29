@@ -15,5 +15,9 @@
   app-checkout-form,
   app-checkout-resume {
     width: 90%;
+
+    @include mobile {
+      margin: 2rem 0;
+    }
   }
 }

@@ -12,6 +12,7 @@ import { Product } from 'src/app/models/product.interfacte';
 export class CheckoutResumeComponent implements OnInit {
   public resume$: Observable<Product[]>;
   public quantity$: Observable<number>;
+  public total$: Observable<number>;
 
   constructor(private store: Store<{ cart }>) {}
 
@@ -19,6 +20,16 @@ export class CheckoutResumeComponent implements OnInit {
     this.resume$ = this.store.select('cart').pipe(map((store) => store.cart));
     this.quantity$ = this.resume$.pipe(
       map((cart) => cart.map((product) => product.quantity)),
+      map((cartProducts: number[]) => {
+        let sum: number = 0;
+        cartProducts.map((totals: number) => {
+          sum += totals;
+        });
+        return sum;
+      })
+    );
+    this.total$ = this.resume$.pipe(
+      map((cart) => cart.map((produtcs) => produtcs.price)),
       map((cartProducts: number[]) => {
         let sum: number = 0;
         cartProducts.map((totals: number) => {

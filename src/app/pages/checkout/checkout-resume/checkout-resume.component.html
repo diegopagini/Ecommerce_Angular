@@ -5,7 +5,14 @@
         *ngFor="let product of resume"
         [product]="product"
       ></app-resume-product-card>
-      <h1>Q = {{ quantity$ | async }}</h1>
+      <div class="card-footer">
+        <div>
+          Quantity: <strong>{{ quantity$ | async }}</strong>
+        </div>
+        <div>
+          Total: <strong>{{ total$ | async | currency }}</strong>
+        </div>
+      </div>
     </div>
   </ng-container>
 </ng-container>
