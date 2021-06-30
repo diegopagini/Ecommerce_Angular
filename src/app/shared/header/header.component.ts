@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +11,10 @@ import { map, tap } from 'rxjs/operators';
 export class HeaderComponent {
   public cartProductsLength$: Observable<any>;
   public menuVisible: boolean = false;
-  public isLoggedIn: Observable<boolean>;
+  public isLoggedIn$: Observable<boolean>;
+  public user$: Observable<any>;
 
-  constructor(private store: Store<{ cart: any }>) {
+  constructor(private store: Store<{ cart: any; login: any }>) {
     this.cartProductsLength$ = this.store.select('cart').pipe(
       map((cart) => cart.cart.map((product) => product.quantity)),
       map((cartProducts: number[]) => {
@@ -23,6 +24,11 @@ export class HeaderComponent {
         });
         return sum;
       })
+    );
+
+    this.user$ = this.store.select('login').pipe(
+      filter((user) => !!user),
+      map((user) => user.user?.displayName)
     );
   }
 

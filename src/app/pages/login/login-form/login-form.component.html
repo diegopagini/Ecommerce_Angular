@@ -1,0 +1,34 @@
+<div class="login-form">
+  <form
+    class="card shadow-sm form-group animate__animated animate__fadeIn"
+    autocomplete="off"
+    [formGroup]="loginForm"
+    (ngSubmit)="login()"
+  >
+    <h2 class="login-form__title">Log in</h2>
+
+    <label for="email" class="form-label">Email</label>
+    <input
+      type="email"
+      id="email"
+      class="form-control"
+      formControlName="email"
+    />
+
+    <label for="password" class="form-label">Password</label>
+    <input
+      type="password"
+      id="password"
+      class="form-control"
+      formControlName="password"
+    />
+
+    <button
+      type="submit"
+      class="btn btn-outline-dark"
+      [disabled]="loginForm.invalid"
+    >
+      Log In
+    </button>
+  </form>
+</div>
