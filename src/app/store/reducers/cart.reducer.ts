@@ -1,5 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { addToCart, updateCart, removeFromCart } from '../actions/cart.actions';
+import { buyOrder } from '../actions/account.actions';
 
 export const initialState = {
   cart: [],
@@ -19,6 +20,10 @@ const _cartReducer = createReducer(
   on(removeFromCart, (state, { payload }) => ({
     ...state,
     cart: [...state.cart.filter((product) => product !== payload)],
+  })),
+  on(buyOrder, (state) => ({
+    ...state,
+    cart: [],
   }))
 );
 

@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
+import { Product } from 'src/app/models/product.interfacte';
+import { buyOrder } from '../../../store/actions/account.actions';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -13,11 +15,12 @@ import Swal from 'sweetalert2';
 })
 export class CheckoutFormComponent implements OnInit {
   public checkoutForm: FormGroup;
-  private isLoggedIn: Observable<boolean>;
+  private isLoggedIn$: Observable<boolean>;
+  private cartProducts$: Observable<Product[]>;
 
   constructor(
     private fb: FormBuilder,
-    private store: Store<{ cart }>,
+    private store: Store<{ cart; login }>,
     private router: Router
   ) {
     this.checkoutForm = this.fb.group({
@@ -34,8 +37,13 @@ export class CheckoutFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.isLoggedIn = this.store.select('cart').pipe(
+    this.isLoggedIn$ = this.store.select('login').pipe(
       map((store) => store.isLoggedIn),
+      take(1)
+    );
+
+    this.cartProducts$ = this.store.select('cart').pipe(
+      map((cart) => cart.cart),
       take(1)
     );
   }
@@ -84,7 +92,7 @@ export class CheckoutFormComponent implements OnInit {
 
   submit() {
     if (this.checkoutForm.valid) {
-      this.isLoggedIn.subscribe((isLogged) => {
+      this.isLoggedIn$.subscribe((isLogged) => {
         if (!isLogged) {
           Swal.fire({
             icon: 'error',
@@ -93,6 +101,9 @@ export class CheckoutFormComponent implements OnInit {
             timer: 1500,
           });
         } else {
+          this.cartProducts$.subscribe((products) => {
+            this.store.dispatch(buyOrder({ payload: products }));
+          });
           Swal.fire({
             icon: 'success',
             title: 'You will receive your order very soon',

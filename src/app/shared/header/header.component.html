@@ -60,7 +60,9 @@
           routerLink="/my-account"
         >
           <i class="bi bi-person-circle"></i
-          ><span class="ps-2">{{ user$ | async }}</span>
+          ><span [ngClass]="{ 'ps-2': (user$ | async) }">{{
+            user$ | async
+          }}</span>
         </button>
         <button class="btn btn-outline-dark" type="button" routerLink="/cart">
           <i class="bi-cart-fill me-1"></i>
