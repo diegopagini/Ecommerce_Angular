@@ -38,9 +38,18 @@
           <a
             class="nav-link"
             aria-current="page"
-            routerLink="login-register"
+            routerLink="login"
             routerLinkActive="active"
-            >Login/Register</a
+            >Login</a
+          >
+        </li>
+        <li *ngIf="!(isLoggedIn | async)" class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLink="register"
+            routerLinkActive="active"
+            >Register</a
           >
         </li>
       </ul>

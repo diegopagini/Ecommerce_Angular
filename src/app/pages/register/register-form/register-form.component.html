@@ -1,0 +1,58 @@
+<div class="register-form">
+  <form
+    class="form-group card shadow-sm animate__animated animate__fadeIn"
+    autocomplete="off"
+    [formGroup]="registerForm"
+    (ngSubmit)="register()"
+  >
+    <h2 class="register-form__title">Register</h2>
+
+    <label for="name" class="form-label">Name</label>
+    <input type="text" id="name" class="form-control" formControlName="name" />
+    <app-form-error *ngIf="nameNoValid"></app-form-error>
+
+    <label for="lastName" class="form-label">Last Name</label>
+    <input
+      type="text"
+      id="lastName"
+      class="form-control"
+      formControlName="lastName"
+    />
+    <app-form-error *ngIf="lastNameNoValid"></app-form-error>
+
+    <label for="email" class="form-label">Email</label>
+    <input
+      type="email"
+      id="email"
+      class="form-control"
+      formControlName="email"
+    />
+    <app-form-error *ngIf="emailNoValid"></app-form-error>
+
+    <label for="age" class="form-label">Age</label>
+    <input type="number" id="age" class="form-control" formControlName="age" />
+    <app-form-error *ngIf="ageNoValid"></app-form-error>
+
+    <label for="password" class="form-label">Password</label>
+    <input
+      type="password"
+      id="password"
+      class="form-control"
+      formControlName="password"
+    />
+    <app-form-error *ngIf="passwordNoValid"></app-form-error>
+
+    <label for="repeatedPassword" class="form-label"
+      >Repeat your password</label
+    >
+    <input
+      type="password"
+      id="repeatedPassword"
+      class="form-control"
+      formControlName="repeatedPassword"
+    />
+    <app-form-error *ngIf="repeatedPasswordNoValid"></app-form-error>
+
+    <button class="btn btn-outline-dark" type="submit">Register</button>
+  </form>
+</div>
