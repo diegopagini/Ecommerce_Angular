@@ -102,7 +102,12 @@ export class CheckoutFormComponent implements OnInit {
           });
         } else {
           this.cartProducts$.subscribe((products) => {
-            this.store.dispatch(buyOrder({ payload: products }));
+            const productsWithDate = {
+              ...products,
+              date: new Date().toISOString(),
+              data: this.checkoutForm.value,
+            };
+            this.store.dispatch(buyOrder({ payload: productsWithDate }));
           });
           Swal.fire({
             icon: 'success',
