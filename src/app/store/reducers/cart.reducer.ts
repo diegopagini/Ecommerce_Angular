@@ -32,20 +32,15 @@ export function cartReducer(state, action) {
   return _cartReducer(state, action);
 }
 
-function groupById(arr: Product[], prod: Product) {
-  //recorrer el arr de productos
-  //si el producto existe
-  //actualizar la cantidad del el producto que existe con la del nuevo
-  // si no existe, lo agrego al arr
-  const newArr = arr.map((product) => {
-    console.log(prod.quantity);
-    console.log(product.quantity);
-    const groupedProduct = {
-      quantity: prod.quantity + product.quantity,
-      ...prod,
-    };
+function groupById(arr: Product[], product: Product) {
+  const itemWithSameId = arr.find((el) => el.id === product.id);
 
-    return groupedProduct;
+  console.log(itemWithSameId);
+  return arr.map((items) => {
+    // if (product.id === items.id) {
+    //   console.log(product);
+    //   console.log(items);
+    //   items.quantity += product.quantity;
+    // }
   });
-  return newArr;
 }
