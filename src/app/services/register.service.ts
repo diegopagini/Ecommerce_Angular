@@ -6,7 +6,7 @@ import { User } from '../models/user.interface';
   providedIn: 'root',
 })
 export class RegisterService {
-  private apiKey: string = 'AIzaSyDHnuvDDK2QTtfIyltK7n3qP_Yj5eXoQiM';
+  private apiKey: string = 'AIzaSyAYKodqWbqPSv3Yz75fjNxMNI1YSJerBac';
   private url: string = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this.apiKey}`;
 
   constructor(private http: HttpClient) {}

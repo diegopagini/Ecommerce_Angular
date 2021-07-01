@@ -1,0 +1,44 @@
+@import "../../../styles/media-queries";
+
+.my-account-order--container {
+  padding: 3rem;
+  min-width: 80vw;
+  width: 100%;
+
+  @include mobile {
+    padding: 1rem;
+  }
+
+  .products-table {
+    margin-bottom: 2rem;
+    width: 100%;
+
+    @include mobile {
+      display: flex;
+      justify-content: space-evenly;
+
+      .products-table--head,
+      .products-table--body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  }
+
+  .invoices-table {
+    width: 100%;
+
+    @include mobile {
+      display: flex;
+      justify-content: space-evenly;
+
+      .invoices-table--head,
+      .invoices-table--body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  }
+}

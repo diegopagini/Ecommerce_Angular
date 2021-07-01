@@ -103,7 +103,7 @@ export class CheckoutFormComponent implements OnInit {
         } else {
           this.cartProducts$.subscribe((products) => {
             const productsWithDate = {
-              ...products,
+              products: [...products],
               date: new Date().toISOString(),
               data: this.checkoutForm.value,
             };

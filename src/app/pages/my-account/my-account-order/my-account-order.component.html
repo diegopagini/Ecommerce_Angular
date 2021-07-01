@@ -1,0 +1,41 @@
+<ng-container *ngIf="order">
+  <div class="my-account-order--container">
+    <h3>Products:</h3>
+    <table class="products-table">
+      <thead class="products-table--head">
+        <th>Title</th>
+        <th>Price</th>
+        <th>Categoty</th>
+      </thead>
+      <tbody class="produts-table--body">
+        <tr *ngFor="let product of order.products">
+          <td>{{ product.title | slice: 0:19 }}</td>
+          <td>{{ product.price | currency }}</td>
+          <td>{{ product.category }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>Invoices details:</h4>
+    <table class="invoices-table">
+      <thead class="invoices-table--head">
+        <th>Date of pruchase</th>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Card</th>
+      </thead>
+      <tbody class="invoices-table--body">
+        <td>{{ order.date | date }}</td>
+        <td>{{ order.data.name }}</td>
+        <td>{{ order.data.lastName }}</td>
+        <td>{{ order.data.address }}</td>
+        <td>{{ order.data.phone }}</td>
+        <td>{{ order.data.email }}</td>
+        <td>{{ order.data.card }}</td>
+      </tbody>
+    </table>
+  </div>
+</ng-container>

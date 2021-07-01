@@ -6,6 +6,7 @@ import { accountReducer } from 'src/app/store/reducers/account.reducer';
 import { MyDataModule } from './my-data/my-data.module';
 import { MyOrdersModule } from './my-orders/my-orders.module';
 import { RouterModule } from '@angular/router';
+import { MyAccountOrderModule } from './my-account-order/my-account-order.module';
 
 @NgModule({
   declarations: [MyAccountComponent],
@@ -14,6 +15,7 @@ import { RouterModule } from '@angular/router';
     MyDataModule,
     MyOrdersModule,
     RouterModule,
+    MyAccountOrderModule,
     StoreModule.forFeature('account', accountReducer),
   ],
   exports: [MyAccountComponent],

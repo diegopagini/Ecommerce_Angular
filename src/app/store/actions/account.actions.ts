@@ -3,5 +3,5 @@ import { Product } from 'src/app/models/product.interfacte';
 
 export const buyOrder = createAction(
   '[Account] Buy Order',
-  props<{ payload: Product[] }>()
+  props<{ payload: any }>()
 );
