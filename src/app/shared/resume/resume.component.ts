@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -10,6 +10,7 @@ import { Product } from 'src/app/models/product.interfacte';
   styleUrls: ['./resume.component.scss'],
 })
 export class ResumeComponent implements OnInit {
+  @Output() summary: EventEmitter<boolean> = new EventEmitter<boolean>();
   public resume$: Observable<any>;
 
   constructor(private store: Store<{ cart }>) {}

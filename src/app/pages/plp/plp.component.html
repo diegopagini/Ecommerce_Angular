@@ -15,7 +15,7 @@
         ></app-product-filter>
       </ng-container>
     </div>
-    <div class="products-grid-contaioner">
+    <div class="products-grid-container">
       <ng-container *ngIf="data.products; else spinner">
         <app-product-grid [products]="data.products"></app-product-grid>
       </ng-container>

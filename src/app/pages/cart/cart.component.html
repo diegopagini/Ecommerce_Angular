@@ -1,4 +1,6 @@
 <main class="main">
   <app-cart-list></app-cart-list>
-  <app-resume></app-resume>
+  <ng-container *ngIf="cartWithProducts$ | async as cart">
+    <app-resume *ngIf="cart.length > 0"></app-resume>
+  </ng-container>
 </main>

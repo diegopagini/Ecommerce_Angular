@@ -8,23 +8,27 @@
     <ng-container *ngIf="data.account; else noAccount">
       <app-my-data [data]="data.account"></app-my-data>
     </ng-container>
-    <ng-contaer *ngIf="data.orders.length > 0 && data.account; else noOrder">
+    <ng-contaer *ngIf="data.orders.length > 0; else noOrder">
       <app-my-orders [orders]="data.orders"></app-my-orders>
     </ng-contaer>
   </div>
+
+  <ng-template #noAccount>
+    <div class="no-account--container">
+      <h3>You must be logged in to see your data...</h3>
+      <button
+        type="button"
+        class="btn btn-outline-dark mt-3"
+        routerLink="/login"
+      >
+        Log in
+      </button>
+    </div>
+  </ng-template>
+
+  <ng-template #noOrder *ngIf="data.account">
+    <div class="no-account--container">
+      <h3>You don't have any order yet ...</h3>
+    </div>
+  </ng-template>
 </ng-container>
-
-<ng-template #noAccount>
-  <div class="no-account--container">
-    <h3>You must be logged in to see your data...</h3>
-    <button type="button" class="btn btn-outline-dark mt-3" routerLink="/login">
-      Log in
-    </button>
-  </div>
-</ng-template>
-
-<ng-template #noOrder>
-  <div class="no-account--container">
-    <h3>You don't have any order yet ...</h3>
-  </div>
-</ng-template>
