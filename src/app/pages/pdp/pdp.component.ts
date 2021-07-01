@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/models/product.interfacte';
 import { ApiService } from 'src/app/services/api.service';
-import { addToCart } from '../../store/actions/cart.actions';
 import Swal from 'sweetalert2';
+import { AddToCartService } from 'src/app/services/add-to-cart.service';
 
 @Component({
   selector: 'app-pdp',
@@ -20,7 +19,7 @@ export class PdpComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiService,
-    private store: Store
+    private addToCartService: AddToCartService
   ) {}
 
   ngOnInit(): void {
@@ -34,7 +33,8 @@ export class PdpComponent implements OnInit {
         ...prod,
         quantity: Number(this.quantity),
       };
-      this.store.dispatch(addToCart({ payload: productToAdd }));
+
+      this.addToCartService.addToCart(productToAdd);
 
       Swal.fire({
         icon: 'success',

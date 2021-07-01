@@ -35,7 +35,13 @@
   <app-form-error *ngIf="emailNoValid"></app-form-error>
 
   <label for="card" class="form-label">Credit card number</label>
-  <input id="card" type="number" class="form-control" formControlName="card" />
+  <input
+    id="card"
+    type="number"
+    class="form-control"
+    formControlName="card"
+    maxlength="16"
+  />
   <app-form-error *ngIf="cardNoValid"></app-form-error>
 
   <div class="btn-container">

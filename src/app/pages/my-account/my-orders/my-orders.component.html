@@ -1,9 +1,9 @@
 <ng-container *ngIf="orders">
   <div class="my-orders--container animate__animated animate__fadeIn">
-    <div class="card shadow-sm">
-      <ng-container *ngFor="let order of orders">
+    <ng-container *ngFor="let order of orders">
+      <div class="card shadow-sm">
         <app-my-account-order [order]="order"></app-my-account-order>
-      </ng-container>
-    </div>
+      </div>
+    </ng-container>
   </div>
 </ng-container>

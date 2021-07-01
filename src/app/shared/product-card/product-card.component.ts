@@ -1,7 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Product } from 'src/app/models/product.interfacte';
-import { addToCart } from '../../store/actions/cart.actions';
 import Swal from 'sweetalert2';
 import { AddToCartService } from 'src/app/services/add-to-cart.service';
 
@@ -14,10 +12,7 @@ export class ProductCardComponent {
   @Input() product: Product;
   public quantity: number = 1;
 
-  constructor(
-    private store: Store,
-    private addToCartService: AddToCartService
-  ) {}
+  constructor(private addToCartService: AddToCartService) {}
 
   addToCart() {
     const produtToAdd = {
@@ -25,7 +20,8 @@ export class ProductCardComponent {
       quantity: this.quantity,
     };
 
-    this.store.dispatch(addToCart({ payload: produtToAdd }));
+    this.addToCartService.addToCart(produtToAdd);
+
     Swal.fire({
       icon: 'success',
       title: 'your product(s) have been added to the cart',
@@ -33,7 +29,6 @@ export class ProductCardComponent {
       timer: 1500,
     });
 
-    // this.addToCartService.addToCart(produtToAdd);
     this.quantity = 1;
   }
 }

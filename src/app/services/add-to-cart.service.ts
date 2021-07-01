@@ -20,18 +20,20 @@ export class AddToCartService {
   }
 
   addToCart(product: Product) {
-    this.cart$.subscribe((cart) => {
-      if (cart.length === 0) {
-        this.store.dispatch(addToCart({ payload: product }));
-      } else {
-        cart.forEach((products) => {
-          if (product.id === products.id) {
-            this.store.dispatch(updateCart({ payload: product }));
-          } else {
-            this.store.dispatch(addToCart({ payload: product }));
-          }
-        });
-      }
-    });
+    this.store.dispatch(addToCart({ payload: product }));
+
+    // this.cart$.subscribe((cart) => {
+    //   if (cart.length === 0) {
+    //     this.store.dispatch(addToCart({ payload: product }));
+    //   } else {
+    //     cart.forEach((products) => {
+    //       if (product.id === products.id) {
+    //         this.store.dispatch(updateCart({ payload: product }));
+    //       } else {
+    //         this.store.dispatch(addToCart({ payload: product }));
+    //       }
+    //     });
+    //   }
+    // });
   }
 }

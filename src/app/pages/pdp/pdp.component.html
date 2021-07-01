@@ -1,72 +1,76 @@
-<!--single page-->
-<ng-container *ngIf="product$ | async as product; else spinner">
-  <section class="py-5">
-    <div class="container px-4 px-lg-5 my-5">
-      <div class="row gx-4 gx-lg-5 align-items-center">
-        <div class="col-md-6">
-          <img
-            class="card-img-top mb-5 mb-md-0"
-            [src]="product.image"
-            [alt]="product.title"
-            loading="lazy"
-          />
-        </div>
-        <div class="col-md-6">
-          <div class="small mb-1">{{ product.category | titlecase }}</div>
-          <h1 class="display-5 fw-bolder">{{ product.title }}</h1>
-          <div class="fs-5 mb-5">
-            <span>{{ product.price | currency }}</span>
-          </div>
-          <p class="lead">
-            {{ product.description }}
-          </p>
-          <div class="d-flex">
-            <input
-              class="form-control text-center me-3"
-              id="inputQuantity"
-              type="number"
-              value="1"
-              [(ngModel)]="quantity"
-              autocomplete="off"
+<div class="pdp-container">
+  <ng-container *ngIf="product$ | async as product; else spinner">
+    <section class="py-5">
+      <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+          <div class="col-md-6">
+            <img
+              class="card-img-top mb-5 mb-md-0"
+              [src]="product.image"
+              [alt]="product.title"
+              loading="lazy"
             />
-            <label for="inputQuantity"></label>
-            <button
-              class="btn btn-outline-dark flex-shrink-0"
-              type="button"
-              (click)="addToCart()"
-            >
-              <i class="bi-cart-fill me-1"></i>
-              Add to cart
-            </button>
+          </div>
+          <div class="col-md-6">
+            <div class="small mb-1">{{ product.category | titlecase }}</div>
+            <h1 class="display-5 fw-bolder">{{ product.title }}</h1>
+            <div class="fs-5 mb-5">
+              <span>{{ product.price | currency }}</span>
+            </div>
+            <p class="lead">
+              {{ product.description }}
+            </p>
+            <div class="d-flex">
+              <input
+                class="form-control text-center me-3"
+                id="inputQuantity"
+                type="number"
+                value="1"
+                [(ngModel)]="quantity"
+                autocomplete="off"
+              />
+              <label for="inputQuantity"></label>
+              <button
+                class="btn btn-outline-dark flex-shrink-0"
+                type="button"
+                (click)="addToCart()"
+              >
+                <i class="bi-cart-fill me-1"></i>
+                Add to cart
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <section>
-    <div class="container text-center">
-      <h2 class="mb-2">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-      </h2>
-      <p class="p-2">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum, dolor
-        a expedita non dolorem quia aspernatur sed modi id fugit delectus
-        praesentium labore saepe sequi, quod illo! Molestias, eum eos.
-      </p>
-      <p class="p-2">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum, dolor
-        a expedita non dolorem quia aspernatur sed modi id fugit delectus
-        praesentium labore saepe sequi, quod illo! Molestias, eum eos.
-      </p>
-      <p class="p-2">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum, dolor
-        a expedita non dolorem quia aspernatur sed modi id fugit delectus
-        praesentium labore saepe sequi, quod illo! Molestias, eum eos.
-      </p>
-    </div>
-  </section>
-</ng-container>
+    </section>
+    <section>
+      <div class="container text-center">
+        <h2 class="mb-2">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+        </h2>
+        <p class="p-2">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum,
+          dolor a expedita non dolorem quia aspernatur sed modi id fugit
+          delectus praesentium labore saepe sequi, quod illo! Molestias, eum
+          eos.
+        </p>
+        <p class="p-2">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum,
+          dolor a expedita non dolorem quia aspernatur sed modi id fugit
+          delectus praesentium labore saepe sequi, quod illo! Molestias, eum
+          eos.
+        </p>
+        <p class="p-2">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum,
+          dolor a expedita non dolorem quia aspernatur sed modi id fugit
+          delectus praesentium labore saepe sequi, quod illo! Molestias, eum
+          eos.
+        </p>
+      </div>
+    </section>
+  </ng-container>
 
-<ng-template #spinner>
-  <app-spinner></app-spinner>
-</ng-template>
+  <ng-template #spinner>
+    <app-spinner></app-spinner>
+  </ng-template>
+</div>
