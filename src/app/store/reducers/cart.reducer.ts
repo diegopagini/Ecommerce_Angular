@@ -32,15 +32,25 @@ export function cartReducer(state, action) {
   return _cartReducer(state, action);
 }
 
-function groupById(arr: Product[], product: Product) {
-  const itemWithSameId = arr.find((el) => el.id === product.id);
+function groupById(productList: Product[], product: Product) {
+  const indexOfProductWithSameId = productList.findIndex(
+    (el: Product) => el.id === product.id
+  );
+  const productWithSameId = productList.find(
+    (el: Product) => el.id === product.id
+  );
+  let updatedProduct: Product;
 
-  console.log(itemWithSameId);
-  return arr.map((items) => {
-    // if (product.id === items.id) {
-    //   console.log(product);
-    //   console.log(items);
-    //   items.quantity += product.quantity;
-    // }
+  productList.forEach((item) => {
+    if (item.id === productWithSameId.id) {
+      const cloneItem = JSON.parse(JSON.stringify(item));
+      cloneItem.quantity = item.quantity + productWithSameId.quantity;
+      updatedProduct = cloneItem;
+    }
   });
+
+  const newProductList = JSON.parse(JSON.stringify(productList));
+  newProductList[indexOfProductWithSameId] = updatedProduct;
+
+  return newProductList;
 }
