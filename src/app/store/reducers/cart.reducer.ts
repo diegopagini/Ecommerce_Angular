@@ -44,7 +44,7 @@ function groupById(productList: Product[], product: Product) {
   productList.forEach((item) => {
     if (item.id === productWithSameId.id) {
       const cloneItem = JSON.parse(JSON.stringify(item));
-      cloneItem.quantity = item.quantity + productWithSameId.quantity;
+      cloneItem.quantity = item.quantity + product.quantity;
       updatedProduct = cloneItem;
     }
   });
