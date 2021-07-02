@@ -27,6 +27,7 @@ export class loginEffects {
       mergeMap((serviceReponse) => serviceReponse),
       map((serviceReponse) => {
         if (serviceReponse.registered === true) {
+          this.loginService.isLoggedIn = true;
           this.router.navigate(['/home']);
           return loginSuccess({ payload: serviceReponse });
         } else {

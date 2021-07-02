@@ -1,5 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
-import { startLogin, loginSuccess, loginFail } from '../actions/login.actions';
+import {
+  startLogin,
+  loginSuccess,
+  loginFail,
+  logout,
+} from '../actions/login.actions';
 
 const initialState = {
   isLoggedIn: false,
@@ -19,6 +24,11 @@ const _loginReducer = createReducer(
     user: payload,
   })),
   on(loginFail, (state) => ({
+    ...state,
+    isLoggedIn: false,
+    user: null,
+  })),
+  on(logout, (state) => ({
     ...state,
     isLoggedIn: false,
     user: null,

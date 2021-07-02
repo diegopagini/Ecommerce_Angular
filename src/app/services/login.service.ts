@@ -8,6 +8,7 @@ import { User } from '../models/user.interface';
 export class LoginService {
   private apiKey: string = 'AIzaSyAYKodqWbqPSv3Yz75fjNxMNI1YSJerBac';
   private url: string = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.apiKey}`;
+  public isLoggedIn: boolean;
 
   constructor(private http: HttpClient) {}
 

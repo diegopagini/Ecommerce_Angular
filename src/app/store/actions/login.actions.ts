@@ -11,4 +11,6 @@ export const loginSuccess = createAction(
   props<{ payload: User }>()
 );
 
+export const logout = createAction('[Login] Logout');
+
 export const loginFail = createAction('[Login] Login Fail');

@@ -1,13 +1,15 @@
 <ng-container *ngIf="data">
   <div class="my-data--container animate__animated animate__fadeIn">
     <div class="card shadow-sm">
-      <h3 class="text-center pb-2">Account data:</h3>
+      <h3 class="pb-2">Account data:</h3>
       <p>
         Name: <i>{{ data.displayName }}</i>
       </p>
       <p>
         Email: <i>{{ data.email }}</i>
       </p>
+
+      <button class="btn btn-outline-dark" (click)="logout()">Logout</button>
     </div>
   </div>
 </ng-container>

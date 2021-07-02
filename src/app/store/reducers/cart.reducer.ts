@@ -32,7 +32,7 @@ export function cartReducer(state, action) {
   return _cartReducer(state, action);
 }
 
-function groupById(productList: Product[], product: Product) {
+function groupById(productList: Product[], product: Product): Product[] {
   const indexOfProductWithSameId = productList.findIndex(
     (el: Product) => el.id === product.id
   );

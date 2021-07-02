@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CheckoutGuardGuard } from './guards/checkout-guard.guard';
 import { CartComponent } from './pages/cart/cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -15,9 +16,16 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'pdp/:id', component: PdpComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'checkout', component: CheckoutComponent },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
+  },
   { path: 'plp', component: PlpComponent },
-  { path: 'my-account', component: MyAccountComponent },
+  {
+    path: 'my-account',
+    component: MyAccountComponent,
+    canActivate: [CheckoutGuardGuard],
+  },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: '**', component: NotFoundComponent },
