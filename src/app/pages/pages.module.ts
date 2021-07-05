@@ -9,6 +9,7 @@ import { PlpModule } from './plp/plp.module';
 import { MyAccountModule } from './my-account/my-account.module';
 import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
+import { ContactModule } from './contact/contact.module';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { RegisterModule } from './register/register.module';
     MyAccountModule,
     LoginModule,
     RegisterModule,
+    ContactModule,
   ],
   exports: [
     HomeModule,
@@ -33,6 +35,7 @@ import { RegisterModule } from './register/register.module';
     MyAccountModule,
     LoginModule,
     RegisterModule,
+    ContactModule,
   ],
 })
 export class PagesModule {}

@@ -1,0 +1,20 @@
+@import "../../../styles/media-queries";
+
+.contact-form--container {
+  padding: 3rem;
+
+  .form-container {
+    padding: 2rem;
+
+    .form-label {
+      padding-top: 1rem;
+    }
+
+    .btn-container {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      padding-top: 3rem;
+    }
+  }
+}

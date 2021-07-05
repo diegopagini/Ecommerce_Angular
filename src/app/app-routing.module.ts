@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CheckoutGuardGuard } from './guards/checkout-guard.guard';
 import { CartComponent } from './pages/cart/cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MyAccountComponent } from './pages/my-account/my-account.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
   },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'contact', component: ContactComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
