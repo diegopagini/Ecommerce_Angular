@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Product } from 'src/app/models/product.interfacte';
 
 @Component({
@@ -6,10 +6,6 @@ import { Product } from 'src/app/models/product.interfacte';
   templateUrl: './product-grid.component.html',
   styleUrls: ['./product-grid.component.scss'],
 })
-export class ProductGridComponent implements OnInit {
+export class ProductGridComponent {
   @Input() products: Product[] = [];
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

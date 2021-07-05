@@ -1,14 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-my-account-order',
   templateUrl: './my-account-order.component.html',
   styleUrls: ['./my-account-order.component.scss'],
 })
-export class MyAccountOrderComponent implements OnInit {
+export class MyAccountOrderComponent {
   @Input() order;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

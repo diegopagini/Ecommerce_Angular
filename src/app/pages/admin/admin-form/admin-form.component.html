@@ -1,0 +1,26 @@
+<form class="admin-form card form-container shadow-sm" (ngSubmit)="submit()">
+  <h2 class="text-center">Add a product</h2>
+  <label for="title" class="form-label">Title</label>
+  <input type="text" id="title" class="form-control" formControlName="title" />
+  <app-form-error *ngIf="titleNoValid"></app-form-error>
+
+  <label for="price" class="form-label">Price</label>
+  <input
+    type="number"
+    id="price"
+    class="form-control"
+    formControlName="price"
+  />
+  <app-form-error *ngIf="priceNoValid"></app-form-error>
+
+  <label for="description" class="form-label">Description</label>
+  <textarea
+    name="description"
+    id="description"
+    cols="30"
+    rows="10"
+    class="form-control"
+    formControlName="description"
+  ></textarea>
+  <app-form-error *ngIf="descriptionNoValid"></app-form-error>
+</form>

@@ -10,6 +10,7 @@ import { MyAccountModule } from './my-account/my-account.module';
 import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
 import { ContactModule } from './contact/contact.module';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { ContactModule } from './contact/contact.module';
     LoginModule,
     RegisterModule,
     ContactModule,
+    AdminModule,
   ],
   exports: [
     HomeModule,
@@ -36,6 +38,7 @@ import { ContactModule } from './contact/contact.module';
     LoginModule,
     RegisterModule,
     ContactModule,
+    AdminModule,
   ],
 })
 export class PagesModule {}

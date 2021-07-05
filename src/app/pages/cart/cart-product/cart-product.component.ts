@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Product } from 'src/app/models/product.interfacte';
 import { removeFromCart } from '../../../store/actions/cart.actions';
@@ -9,12 +9,10 @@ import Swal from 'sweetalert2';
   templateUrl: './cart-product.component.html',
   styleUrls: ['./cart-product.component.scss'],
 })
-export class CartProductComponent implements OnInit {
+export class CartProductComponent {
   @Input() product: Product;
 
   constructor(private store: Store) {}
-
-  ngOnInit(): void {}
 
   removeItem() {
     this.store.dispatch(removeFromCart({ payload: this.product }));

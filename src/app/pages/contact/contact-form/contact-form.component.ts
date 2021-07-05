@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { take } from 'rxjs/operators';
 import { ContactService } from 'src/app/services/contact.service';
@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
   templateUrl: './contact-form.component.html',
   styleUrls: ['./contact-form.component.scss'],
 })
-export class ContactFormComponent implements OnInit {
+export class ContactFormComponent {
   public contactForm: FormGroup;
 
   constructor(private fb: FormBuilder, private contactService: ContactService) {
@@ -19,8 +19,6 @@ export class ContactFormComponent implements OnInit {
       message: ['', [Validators.required]],
     });
   }
-
-  ngOnInit(): void {}
 
   get nameNoValid() {
     return (
