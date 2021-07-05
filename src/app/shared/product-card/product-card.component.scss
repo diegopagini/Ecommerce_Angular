@@ -6,14 +6,13 @@
   max-width: 320px;
 
   &-img-top {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     cursor: pointer;
     height: 300px;
-    padding: 1rem;
-
-    img {
-      height: 100%;
-      width: 100%;
-    }
+    margin: 0 auto;
+    max-width: 90%;
   }
 
   .btn-container {

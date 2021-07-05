@@ -7,6 +7,14 @@
   position: relative;
   max-width: 750px;
 
+  &-img-top {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    margin: 0.5rem;
+  }
+
   @include mobile {
     align-items: center;
     flex-direction: column;

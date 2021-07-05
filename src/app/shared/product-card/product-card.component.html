@@ -1,13 +1,13 @@
 <ng-container *ngIf="product">
   <div class="card shadow-sm animate__animated animate__fadeIn">
     <!-- Product image-->
-    <img
+    <div
       class="card-img-top"
-      [src]="product.image"
-      [alt]="product.title"
-      loading="lazy"
+      [ngStyle]="{
+        'background-image': 'url(' + product.image + ' )'
+      }"
       routerLink="/pdp/{{ product.id }}"
-    />
+    ></div>
     <!-- Product details-->
     <div class="card-body p-2">
       <div class="text-center">
