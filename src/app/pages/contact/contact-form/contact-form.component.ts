@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { take } from 'rxjs/operators';
+import { ContactService } from 'src/app/services/contact.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact-form',
@@ -9,7 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ContactFormComponent implements OnInit {
   public contactForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private contactService: ContactService) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required]],
       reason: ['', [Validators.required]],
@@ -42,7 +45,20 @@ export class ContactFormComponent implements OnInit {
 
   submit() {
     if (this.contactForm.valid) {
-      console.log(this.contactForm.value);
+      this.contactService
+        .sendMessage(this.contactForm.value)
+        .pipe(take(1))
+        .subscribe((resp: any) => {
+          if (resp.name) {
+            this.contactForm.reset();
+            Swal.fire({
+              icon: 'success',
+              title: 'Your message was sent successfully',
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
     } else {
       this.contactForm.markAllAsTouched();
     }
