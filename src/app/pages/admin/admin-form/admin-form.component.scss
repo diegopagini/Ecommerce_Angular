@@ -1,8 +1,21 @@
+@import "../../../styles/media-queries";
+
 .admin-form {
   padding: 3rem;
   width: 100%;
 
+  @include mobile {
+    padding: 1rem;
+  }
+
   .form-label {
     padding-top: 1rem;
+  }
+
+  .btn-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
   }
 }

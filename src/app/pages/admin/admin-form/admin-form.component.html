@@ -1,4 +1,9 @@
-<form class="admin-form card form-container shadow-sm" (ngSubmit)="submit()">
+<form
+  class="admin-form card form-container shadow-sm"
+  [formGroup]="adminForm"
+  autocomplete="off"
+  (ngSubmit)="submit()"
+>
   <h2 class="text-center">Add a product</h2>
   <label for="title" class="form-label">Title</label>
   <input type="text" id="title" class="form-control" formControlName="title" />
@@ -23,4 +28,25 @@
     formControlName="description"
   ></textarea>
   <app-form-error *ngIf="descriptionNoValid"></app-form-error>
+
+  <label for="category" class="form-label">Category</label>
+  <select
+    name="category"
+    id="category"
+    class="form-control"
+    formControlName="category"
+  >
+    <option *ngFor="let category of categories" [value]="category">
+      {{ category }}
+    </option>
+  </select>
+  <app-form-error *ngIf="categoryNoValid"></app-form-error>
+
+  <label for="image" class="form-label">Image</label>
+  <input type="file" id="image" class="form-control" formControlName="image" />
+  <app-form-error *ngIf="imageNoValid"></app-form-error>
+
+  <div class="btn-container">
+    <button type="submit" class="btn btn-outline-dark">Add Product</button>
+  </div>
 </form>
