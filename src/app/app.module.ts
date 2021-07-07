@@ -11,6 +11,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { cartReducer } from './store/reducers/cart.reducer';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +22,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AppRoutingModule,
     PagesModule,
     SharedModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAnalyticsModule,
     StoreModule.forRoot({ cart: cartReducer }, {}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
@@ -29,7 +35,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:30000',
     }),
   ],
   providers: [],

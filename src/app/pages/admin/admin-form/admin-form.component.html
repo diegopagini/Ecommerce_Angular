@@ -43,7 +43,13 @@
   <app-form-error *ngIf="categoryNoValid"></app-form-error>
 
   <label for="image" class="form-label">Image</label>
-  <input type="file" id="image" class="form-control" formControlName="image" />
+  <input
+    type="file"
+    id="image"
+    class="form-control"
+    formControlName="image"
+    accept="image/jpg, image/png"
+  />
   <app-form-error *ngIf="imageNoValid"></app-form-error>
 
   <div class="btn-container">
