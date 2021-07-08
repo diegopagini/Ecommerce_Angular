@@ -48,7 +48,8 @@
     id="image"
     class="form-control"
     formControlName="image"
-    accept="image/jpg, image/png"
+    accept="image/jpeg"
+    (click)="onFileSelected($event)"
   />
   <app-form-error *ngIf="imageNoValid"></app-form-error>
 
