@@ -7,5 +7,5 @@ import { Product } from 'src/app/models/product.interfacte';
   styleUrls: ['./product-grid.component.scss'],
 })
 export class ProductGridComponent {
-  @Input() products: Product[] = [];
+  @Input() products: Product[];
 }
